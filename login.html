@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce Website</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      #auth {
+        background-image: url(shopping-bag-cart.jpg);
+        height: 90vh;
+        width: 100%;
+        background-size: cover;
+        background-position: top 25% right 0;
+        padding: 0 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      #auth {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 60px); /* Adjust for header height */
+      }
+
+      .auth-container {
+        padding: 35px 25px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        height: 70vh;
+        width: 80vh;
+        text-align: center;
+      }
+
+      .auth-tabs {
+        display: flex;
+        margin-bottom: 20px;
+      }
+
+      .tab-button {
+        flex: 1;
+        padding: 10px;
+        background-color: #eee;
+        border: 1px solid #ddd;
+        border-radius: 4px 4px 0 0;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .tab-button.active {
+        background-color: #088178;
+        color: #000;
+        font-weight: 600;
+        border-color: #088178;
+      }
+
+      .auth-forms .auth-form {
+        display: none;
+      }
+
+      .auth-forms .auth-form.active {
+        display: block;
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      .input-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #088178;
+        border: none;
+        font-weight: 600;
+        color: #000;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #088178;
+      }
+
+      .error-message {
+        color: red;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="header">
+      <a href="#"><img src="logo.png" alt="" srcset="" /></a>
+
+      <div>
+        <ul id="navbar">
+          <li><a href="main.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li id="bag"><a class="active"  href="login.html"><i class="fas fa-user"></i></a</li>
+          <li id="bag"><a href="cart.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+          <a href="#" id="close"><i class="fas fa-times"></i></a>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="cart.html"><i style="color: black;" class="fa fa-shopping-bag" aria-hidden="true"></i> </a>
+        <a href="login.html"><i class="fas fa-user"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+      </div>
+    </section>
+
+    <section id="auth" class="section-p1">
+      <div class="auth-container">
+        <div class="auth-tabs">
+          <button class="tab-button active" onclick="showTab('login')">
+            Login
+          </button>
+          <button class="tab-button" onclick="showTab('signup')">
+            Sign Up
+          </button>
+        </div>
+        <div class="auth-forms">
+          <!-- Login Form -->
+          <div id="login" class="auth-form active">
+            <h1>Login</h1>
+            <form id="loginForm">
+              <div class="input-group">
+                <label for="loginUsername">Username:</label>
+                <input
+                  type="text"
+                  id="loginUsername"
+                  name="username"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label for="loginPassword">Password:</label>
+                <input
+                  type="password"
+                  id="loginPassword"
+                  name="password"
+                  required
+                />
+              </div>
+              <button type="submit">Login</button>
+              <div id="loginError" class="error-message"></div>
+            </form>
+          </div>
+
+          <!-- Sign Up Form -->
+          <div id="signup" class="auth-form">
+            <h1>Sign Up</h1>
+            <form id="signupForm">
+              <div class="input-group">
+                <label for="signupUsername">Username:</label>
+                <input
+                  type="text"
+                  id="signupUsername"
+                  name="username"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label for="signupEmail">Email:</label>
+                <input type="email" id="signupEmail" name="email" required />
+              </div>
+              <div class="input-group">
+                <label for="signupPassword">Password:</label>
+                <input
+                  type="password"
+                  id="signupPassword"
+                  name="password"
+                  required
+                />
+              </div>
+              <button type="submit">Sign Up</button>
+              <div id="signupError" class="error-message"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="logo.png" alt="" />
+        <h4>Contact</h4>
+        <p><strong>Address: </strong>563 S-G Highway,Ahmedabad</p>
+        <p><strong>Phone: </strong>+91 77732 22344/(+01 2345 2323)</p>
+        <p><strong>Hours: </strong>10:00 - 18:00,Mon-sat</p>
+        <div class="follow">
+          <h4>follow us</h4>
+          <div class="icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-pinterest-p"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Term & Conditions</a>
+        <a href="#">Contact-us</a>
+      </div>
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign Up</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+      </div>
+      <div class="col install">
+        <h4>Install</h4>
+        <p>From App Store Or Google Play</p>
+        <div class="row">
+          <img src="pay/app.jpg" alt="" />
+          <img src="pay/play.jpg" alt="" />
+        </div>
+        <p>Secured Payment Gateways</p>
+        <img src="pay/pay.png" alt="" />
+      </div>
+      <div class="copyright">
+        <p>©2024,Stark Ecommerce-site lnc. All rights reserved</p>
+      </div>
+    </footer>
+
+    <script src="main_js.js"></script>
+  </body>
+</html>
